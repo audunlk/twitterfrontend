@@ -33,25 +33,55 @@ body{
     padding-left: 1rem;
     padding-top: 0.3rem;
     resize: none;
+    transition: 0.3s;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loginInput{
+    width: 100%;
+    height: 2rem;
+    border: 1px solid grey;
+    box-shadow: 0 0 0 1px rgb(97, 97, 97);
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    padding-left: 1rem;
+    transition: 0.3s;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .inputBox textarea:focus{
     outline: none;
     height: 5rem;
-    
+    transition: 0.3s;
 }
 
 .button{
-    height: 100%;
-    border: none;
-    color: white;
-    font-weight: bold;
+    position: absolute;
+    color: grey;
     font-size: 1rem;
-    padding-top: 1rem;
+    border-left: 1px solid grey;
+    padding-left: 1rem;
     padding-right: 1rem;
     cursor: pointer;
     text-align: right;
+    overflow: hidden;
+    z-index: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loginButton{
+    font-size: 1rem;
+    border-left: 1px solid grey;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    cursor: pointer;
+    text-align: right;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .profileImg{
@@ -85,6 +115,7 @@ body{
     background-color: rgb(22, 22, 22);
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .main{
@@ -132,4 +163,65 @@ body{
 .time{
     color: rgb(97, 97, 97);
     font-size: 0.8rem;
+}
+
+.statsBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.likeBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+
+.like{
+    width: 20px;
+    height: 20px;
+
+}
+
+.like:hover{
+    cursor: pointer;
+}
+
+
+.login{
+    width: 100vw;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100vh;
+    
+}
+.loginBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    height: 100%;
+}
+
+.loginForm{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+.loginError{
+    color: red;
 }

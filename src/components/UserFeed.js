@@ -4,6 +4,7 @@ import { getFormattedDate } from "../utils/dates";
 import ProfilePicture from "../images/profilepicture.svg";
 import Tweet from "./Tweet";
 import ErrorMessage from "./ErrorMessage";
+import { updateLikes } from "../services/tweets";
 
 class UserFeed extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class UserFeed extends React.Component {
       tweets: [],
       isLoading: true,
       error: null,
+      likes: []
     };
   }
 
@@ -39,6 +41,34 @@ class UserFeed extends React.Component {
       });
     }
   };
+
+  
+handleLike = async (id, like_count) => {
+  const { tweets } = this.state;
+  const newTweets = tweets.map((tweet) => {
+    if (tweet.id === id) {
+      return {
+        ...tweet,
+        like_count: like_count + 1,
+      };
+    }
+    return tweet;
+  });
+  this.setState({ tweets: newTweets });
+  await updateLikes(id, like_count);
+};
+
+//check if user has liked post already
+// handleCheckLike = (tweet) => {
+//   const { likes } = this.state;
+//   const liked = likes.find((like) => like.tweet_id === tweet.id);
+//   if (liked) {
+//     return true;
+//   }
+//   return false;
+// };
+
+
 
   render() {
     const { isLoading, error } = this.state;
@@ -82,7 +112,8 @@ class UserFeed extends React.Component {
             
           </div>
         </div>
-        <Tweet tweets={tweetPerUser} />
+        <Tweet tweets={tweetPerUser}
+        handleLike={this.handleLike}  />
       </div>
     );
   }
